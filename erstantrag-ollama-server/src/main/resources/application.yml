@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: erstantrag-ollama-server
+  main:
+    banner-mode: off
+  ai:
+    ollama:
+      chat:
+        options:
+          model: gemma3:12b
+  threads:
+    virtual:
+      enabled: true
+server:
+  port: 8085
