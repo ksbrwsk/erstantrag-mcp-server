@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Sind Betriebsrenten steuerpflichtig?",
+    "answer": "Ja. In der Rentenphase unterliegen die Rentenzahlungen als Einkünfte aus nicht selbstständiger Arbeit („Nachträglicher Arbeitslohn“) gemäß § 19 EStG in voller Höhe der Einkommensteuerpflicht. Die Höhe der Steuer richtet sich nach dem dann gültigen individuellen Steuersatz des Versorgungsberechtigten."
+  },
+  {
+    "question": "Wie wird eine einmalige Kapitalleistung besteuert?",
+    "answer": "Für eine einmalige Kapitalleistung aus einer betrieblichen Unterstützungskasse oder Pensionszusage kann in der Regel die sogenannte Fünftelregelung gemäß § 34 EStG angewendet werden. Dazu wird bei der Berechnung der Steuer ein Fünftel der Kapitalzahlung dem sonstigen zu versteuernden Einkommen hinzugerechnet. Die Differenz zwischen diesem Betrag und dem (normalen) Steuerbetrag ohne die Kapitalleistung wird mit fünf multipliziert und ergibt den Steuerbetrag für die gesamte Kapitalleistung. Durch die fiktive Verteilung der Kapitalleistung auf fünf Jahre wird die Steuerprogression ggf. gemildert und eine Steuererleichterung erzielt. Der Steuerpflichtige muss die Kapitalleistung im Rahmen seiner Einkommenssteuererklärung zur Anwendung der Fünftelregelung angeben."
+  },
+  {
+    "question": "Sind Betriebsrenten sozialabgabenpflichtig?",
+    "answer": "Leistungen aus einer betrieblichen Altersversorgung sind grundsätzlich bis zur jeweiligen Beitragsbemessungsgrenze in der Krankenversicherung der Rentner (KVdR)  kranken- und pflegeversicherungspflichtig. Ausnahme für Pflichtversicherte: Die fälligen Leistungen liegen unterhalb der Freigrenze von 176,75 EUR monatlich in 2024. Für Leistungen oberhalb der Freigrenze greift ein Freibetrag für gesetzlich Pflichtversicherte in der Krankenversicherung. Dieser beträgt 176,75 Euro in 2024 und gilt nicht für die Pflegeversicherung. Versorgungsleistungen oberhalb des Freibetrags sind in voller Höhe beitragspflichtig. Achtung: Der Freibetrag ist auf die Summe aller betrieblichen Versorgungsleistungen anzuwenden. Auch eine Kapitalleistung ist in der KVdR beitragspflichtig. Die Kapitalleistung wird fiktiv auf die nächsten 120 Monate ab Fälligkeit verteilt und den sonstigen beitragspflichtigen Versorgungsleistungen hinzugerechnet. Die Regelungen zur Freigrenze und Freibetrag geltend entsprechend.Privat Versicherte zahlen für Leistungen aus der bAV keine Kranken- und Pflegeversicherungsbeiträge."
+  },
+  {
+    "question": "Wer führt die Steuern ab?",
+    "answer": "Für alle Leistungen einer arbeitgeberfinanzierten betrieblichen Unterstützungskasse oder Pensionszusage führen wir die Steuer für Sienach den individuellen Steuermerkmalen ab.Rentenzahlungen der Gerling Versorgungskasse VVaG werden lediglich dem Finanzamt gemeldet. Die Leistungen sind im Rahmen der Steuererklärung vom Versorgungsberechtigten eigenständig anzugeben.Die steuerpflichtigen Kapitalerträge nach Auszahlung der Austrittsvergütung werden dem Finanzamt mit dem Schluss des Jahres der Auszahlung gemeldet."
+  },
+  {
+    "question": "Wer führt die Krankenversicherungsbeiträge ab?",
+    "answer": "Für alle gesetzlich pflichtversicherten Mitglieder in der Krankenversicherung der Rentner (KVdR) führen wir die Beiträge zur gesetzlichen Krankenversicherung im Falle einer Rentenzahlung ab. Bei einer Kapitalleistung melden wir die Auszahlungshöhe im an die zuständige gesetzliche Krankenkasse. Diese kommt bzgl. der Beitragszahlung auf Sie zu. Bei freiwillig versicherten Mitgliedern in der KVdR melden wir lediglich die Auszahlungshöhe und Leistungsart an die gesetzliche Krankenkasse.Die gesetzliche Krankenkasse kommt bzgl. der Beitragszahlung auf Sie zu.Privat Versicherte sind für die Entrichtung der Beiträge eigenverantwortlich zuständig."
+  }
+]

@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: erstantrag
+  threads:
+    virtual:
+      enabled: true
+  ai:
+    mcp:
+      client:
+        toolcallback:
+          enabled: true
+        name: erstantrag-mcp-client
+        version: 0.0.1
+        request-timeout: 30s
+        type: sync
+        sse:
+          connections:
+            erstantrag-iban-mcp-server:
+              url: http://localhost:8081
+            erstantrag-adresse-mcp-server:
+              url: http://localhost:8082
+    ollama:
+      chat:
+        options:
+          model: gemma3:12b
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1536
+        max-document-batch-size: 10000 # Optional: Maximum number of documents per batch
+  mail:
+    default-encoding: UTF-8
+    host: localhost
+    port: 1025
+  mustache:
+    check-template-location: false
+  datasource:
+    url: jdbc:postgresql://localhost:5555/vector_store
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 3
+      idle-timeout: 10000
+      connection-timeout: 10000
+      max-lifetime: 120000
+server:
+  error:
+    include-stacktrace: never
+    include-message: always

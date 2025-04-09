@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/tw-common-head :: tw-common-head}"></head>
+<body class="bg-white">
+<!--<div th:replace="~{fragments/tw-common-header :: tw-common-header}"></div>-->
+
+<section class="m-4 rounded-lg border-2 bg-green-200 p-4">
+    <h1 class="text-2xl font-bold mt-8">Erstantrag Altersrente</h1>
+    <h2 class="text-xl font-bold mt-6">Wichtige Daten f&uuml;r die Auszahlung</h2>
+    <div class="mt-6 flex flex-col space-x-0 space-y-4 lg:flex-row lg:content-start lg:items-start lg:justify-start lg:space-x-4 lg:space-y-0">
+        <div class="flex flex-col space-y-4 flex-1">
+            <div th:replace="~{fragments/common-messages :: common-messages}"></div>
+        </div>
+    </div>
+</section>
+<section class="m-4 rounded-lg border-2 bg-green-200 p-4">
+    <h2 class="text-xl font-bold mt-6">1. Pers&ouml;nliche Angaben</h2>
+    <span class="mt-6 text-md font-bold">Wichtig: Um eine fristgerechte Auszahlung zu garantieren, versenden Sie dieses Formular bitte bis spätestens 3 Monate vor Ihrer 1. Rente.</span>
+    <form th:action="@{/processErstantrag}" id="erstantragForm" th:object="${erstantragForm}" method="post" class="space-y-6 mt-8">
+        <input type="hidden" th:field="*{antragnummer}"/>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="email" class="mb-2 text-md font-bold text-gray-700">Email *</label>
+                <input type="text" th:required="required" id="email" th:field="*{email}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                     class="text-red-700 text-sm font-bold mt-1">
+                    Fehler
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label for="telefon" class="mb-2 text-md font-bold text-gray-700">Telefon *</label>
+                <input type="text" th:required="required" id="telefon" th:field="*{telefon}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"
+                     class="text-red-700 text-sm font-bold mt-1">
+                    Fehler
+                </div>
+            </div>
+        </div>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="vorname" class="mb-2 text-md font-bold text-gray-700">Vorname *</label>
+                <input type="text" th:required="required" id="vorname" th:field="*{vorname}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('vorname')}" th:errors="*{vorname}"
+                     class="text-red-700 text-sm font-bold mt-1">
+                    Fehler
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label for="nachname" class="mb-2 text-md font-bold text-gray-700">Nachname *</label>
+                <input type="text" th:required="required" id="nachname" th:field="*{nachname}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('nachname')}" th:errors="*{nachname}"
+                     class="text-red-700 text-sm font-bold mt-1">
+                    Fehler
+                </div>
+            </div>
+        </div>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="geburtsdatum" class="mb-2 text-md font-bold text-gray-700">Geburtsdatum *</label>
+                <input type="text" th:required="required" id="geburtsdatum" th:field="*{geburtsdatum}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('vorname')}" th:errors="*{geburtsdatum}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label for="geburtsort" class="mb-2 text-md font-bold text-gray-700">Geburtsort *</label>
+                <input type="text" th:required="required" id="geburtsort" th:field="*{geburtsort}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('geburtsort')}" th:errors="*{geburtsort}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label for="staatsangehoerigkeit" class="mb-2 text-md font-bold text-gray-700">Staatsangeh&ouml;rigkeit
+                    *</label>
+                <input type="text" th:required="required" id="staatsangehoerigkeit" th:field="*{staatsangehoerigkeit}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('staatsangehoerigkeit')}" th:errors="*{staatsangehoerigkeit}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+        </div>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="strasse" class="mb-2 text-md font-bold text-gray-700">Strasse *</label>
+                <input type="text" th:required="required" id="strasse" th:field="*{strasse}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('strasse')}" th:errors="*{strasse}"
+                     class="text-red-700 text-sm font-bold mt-1">
+                    Fehler
+                </div>
+            </div>
+        </div>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="plz" class="mb-2 text-md font-bold text-gray-700">Plz *</label>
+                <input type="text" th:required="required" id="plz" th:field="*{plz}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('plz')}" th:errors="*{plz}" class="text-red-700 text-sm font-bold mt-1">
+                    Fehler
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label for="ort" class="mb-2 text-md font-bold text-gray-700">Ort *</label>
+                <input type="text" th:required="required" id="ort" th:field="*{ort}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('ort')}" th:errors="*{ort}" class="text-red-700 text-sm font-bold mt-1">
+                    Fehler
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold mt-6">2. Rentenbeginn und Nachweise</h2>
+        <span class="font-bold mt-6">Bitte kreuzen Sie die Dokumente an, die Sie für Ihren Leistungsfall einreichen wollen. Die Dokumente können am Ende des Fragebogens hochgeladen werden. Sollten noch weitere Unterlagen zur Leistungsprüfung erforderlich sein, kontaktieren wir Sie. Hinweis: Die Übermittlung von Nachweisen ist nur erforderlich, wenn Sie eine vorgezogene Leistung beantragen! Die Nachweise können auch zu einem späteren Zeitpunkt über das Formular "Aktualisierung bestehender Daten" nachgereicht werden.</span>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col">
+                <label for="gewuenschterRentenbeginn" class="mb-2 text-md font-bold text-gray-700">Gewünschter
+                    Rentenbeginn *</label>
+                <input type="text" th:required="required" id="gewuenschterRentenbeginn"
+                       th:field="*{gewuenschterRentenbeginn}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('gewuenschterRentenbeginn')}" th:errors="*{gewuenschterRentenbeginn}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="bescheidRentenversicherung" th:field="*{bescheidRentenversicherung}"
+                       class="mr-2 w-6 h-6 text-md font-bold accent-green-600"/>
+                <label for="bescheidRentenversicherung" class="text-md font-bold ">Bescheid
+                    Rentenversicherung</label>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="sonstigerNachweis" th:field="*{sonstigerNachweis}"
+                       class="mr-2 w-6 h-6 text-md font-bold accent-green-600"/>
+                <label for="sonstigerNachweis" class="text-md font-bold ">Sonstiger Nachweis</label>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold mt-6">3. Besondere Vereinbarungen</h2>
+        <span class="font-bold mt-6">Bestehen oder bestanden bei Ihrer Zusage ergänzende, individuelle Vereinbarungen zur Versorgungszusage?</span>
+
+        <div class="flex space-x-4 ">
+
+            <div class="flex items-center">
+                <input type="checkbox" id="besondereVereinbarungenVorhanden"
+                       th:field="*{besondereVereinbarungenVorhanden}"
+                       class="mr-2 w-6 h-6 text-md font-bold accent-green-600"/>
+                <label for="besondereVereinbarungenVorhanden" class="text-md font-bold ">&nbsp;ja</label>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="xxx" class="mr-2 w-6 h-6 text-md font-bold accent-green-600"/>
+                <label for="xxx" class="text-md font-bold ">&nbsp;nein</label>
+            </div>
+
+            <div class="flex flex-col w-full">
+                <label for="besondereVereinbarungen"
+                       class="mb-2 text-md font-bold text-gray-700">Kurzbeschreibung</label>
+                <input type="text" id="besondereVereinbarungen" th:field="*{besondereVereinbarungen}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('besondereVereinbarungen')}" th:errors="*{besondereVereinbarungen}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold mt-6">4. Steuermerkmale</h2>
+        <span class="font-bold mt-6">Für die Altersleistung wird die vom Finanzamt gemeldete Steuerklasse ber&uuml;cksichtigt.</span>
+
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="steueridentifikationsnummer" class="mb-2 text-md font-bold text-gray-700">Steuer-Identifikationsnummer
+                    *</label>
+                <input type="text" th:required="required" id="steueridentifikationsnummer"
+                       th:field="*{steueridentifikationsnummer}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('steueridentifikationsnummer')}"
+                     th:errors="*{steueridentifikationsnummer}" class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+        </div>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="auszahlungDienstverhaeltnis" class="mb-2 text-md font-bold text-gray-700">Auszahlung
+                    Dienstverh&auml;ltnis *</label>
+                <select class="p-2 w-full rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"
+                        id="auszahlungDienstverhaeltnis"
+                        name="auszahlungDienstverhaeltnis"
+                        form="erstantragForm"
+                >
+                    <option></option>
+                    <option>Auszahlung der beantragten Leistung mit 1. Dienstverh&auml;ltnis</option>
+                    <option>Auszahlung der beantragten Leistung mit 2. Dienstverh&auml;ltnis (Steuerklasse VI)</option>
+                </select>
+                <div th:if="${#fields.hasErrors('auszahlungDienstverhaeltnis')}"
+                     th:errors="*{auszahlungDienstverhaeltnis}" class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold mt-6">5. Krankenversicherung</h2>
+        <h3 class="text-large font-bold mt-6">Wie wähle ich den richtigen Versicherungsstatus als Rentner?</h3>
+        <h4 class="text-md font-bold mt-6">Wer eine gesetzliche Rente bezieht und in der 2. Hälfte der Erwerbszeit mind.
+            zu 90% gesetzlich versichert war, ist Pflichtmitglied in der gesetzlichen Krankenversicherung der Rentner.
+            Dabei ist es unerheblich, ob in dieser Phase eine freiwillige bzw. eine Pflichtmitgliedschaft oder eine
+            Familienversicherung bestand. Versicherte, die keinen Rentenanspruch aus der gesetzlichen Rentenversicherung
+            haben oder die die Vorversicherungszeit nicht erfüllen, gelten als freiwillig Versicherte in der GKV.
+            Personen, die bereits während ihres Erwerbslebens privat krankenversichert waren, behalten diesen Status im
+            Rentenalter in aller Regel bei.</h4>
+
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="versicherungsstatus" class="mb-2 text-md font-bold text-gray-700">Versicherungsstatus als
+                    Rentner *</label>
+                <select class="p-2 w-full rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"
+                        id="versicherungsstatus"
+                        name="versicherungsstatus"
+                        form="erstantragForm"
+                >
+                    <option></option>
+                    <option>Gesetzlich pflichtversichert</option>
+                    <option>Gesetzlich freiwillig versichert</option>
+                    <option>Privat versichert</option>
+                </select>
+                <div th:if="${#fields.hasErrors('versicherungsstatus')}" th:errors="*{versicherungsstatus}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+        </div>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="krankenkasse" class="mb-2 text-md font-bold text-gray-700">Name der Krankenkasse *</label>
+                <input type="text" th:required="required" id="krankenkasse" th:field="*{krankenkasse}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('krankenkasse')}" th:errors="*{krankenkasse}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label for="rentenversicherungsnummer" class="mb-2 text-md font-bold text-gray-700">Rentenversicherungsnummer
+                    *</label>
+                <input type="text" th:required="required" id="rentenversicherungsnummer"
+                       th:field="*{rentenversicherungsnummer}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('rentenversicherungsnummer')}" th:errors="*{rentenversicherungsnummer}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-sm font-bold">Was bedeutet "Elterneigenschaft"?</h3>
+        <span class="font-bold mt-6">Elterneigenschaft bedeutet, dass eine Person die Rechte und Pflichten eines Elternteils hat und für das Wohlergehen und die Erziehung des Kindes verantwortlich ist. Die Elterneigenschaft wird erfüllt, wenn Sie unter den vorgenannten Voraussetzungen ein leibliches Kind, ein Adoptivkind, ein Stiefkind oder ein Pflegekind haben oder hatten. Die Angabe hat Auswirkungen auf die Höhe des Beitrages zur Pflegeversicherung. </span>
+
+        <div class="flex space-x-4 ">
+
+            <div class="flex items-center">
+                <input type="checkbox" id="erfuellungElterneigenschaft" th:field="*{erfuellungElterneigenschaft}"
+                       class="mr-2 w-6 h-6 text-md font-bold accent-green-600"/>
+                <label for="erfuellungElterneigenschaft" class="text-md font-bold ">&nbsp;ja</label>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="yyy" class="mr-2 w-6 h-6 text-md font-bold accent-green-600"/>
+                <label for="yyy" class="text-md font-bold ">&nbsp;nein</label>
+            </div>
+
+            <div class="flex flex-col w-full">
+                <label for="nameKinder" class="mb-2 text-md font-bold text-gray-700">Falls ja, bitte nennen Sie uns Name
+                    und Geburtsdatum des Kindes/ ihrer Kinder</label>
+                <input type="text" id="nameKinder" th:field="*{nameKinder}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('nameKinder')}" th:errors="*{nameKinder}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold mt-6">6. Ihre Bankverbindung</h2>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="nameKontoinhaber" class="mb-2 text-md font-bold text-gray-700">Name Kontoinhaber *</label>
+                <input type="text" th:required="required" id="nameKontoinhaber" th:field="*{nameKontoinhaber}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('nameKontoinhaber')}" th:errors="*{nameKontoinhaber}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+            <div class="flex flex-col w-full">
+                <label for="iban" class="mb-2 text-md font-bold text-gray-700">IBAN *</label>
+                <input type="text" th:required="required" id="iban" th:field="*{iban}"
+                       class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"/>
+                <div th:if="${#fields.hasErrors('iban')}" th:errors="*{iban}"
+                     class="text-red-700 text-sm font-bold mt-1">Fehler
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold mt-6">7. Sonstige Anmerkungen</h2>
+        <div class="flex space-x-4 ">
+            <div class="flex flex-col w-full">
+                <label for="anmerkungen" class="mb-2 text-md font-bold text-gray-700">Sonstige Anmerkungen</label>
+                <textarea cols="80" rows="8" id="anmerkungen" th:field="*{anmerkungen}"
+                          class="p-2 rounded-md border-2 border-gray-200 focus:border-green-800 focus:outline-0"></textarea>
+            </div>
+
+        </div>
+
+        <!-- Weitere Felder hier -->
+        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-800">Absenden</button>
+    </form>
+</section>
+<div th:replace="~{fragments/tw-common-bottom :: tw-common-bottom}"></div>
+</body>
+</html>

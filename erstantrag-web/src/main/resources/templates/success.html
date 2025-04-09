@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/tw-common-head :: tw-common-head}"></head>
+<body class="bg-white">
+<!--<div th:replace="~{fragments/tw-common-header :: tw-common-header}"></div>-->
+
+<section class="m-4 rounded-lg border-2 bg-green-200 p-4">
+  <h1 class="text-2xl font-bold mt-8">Vielen Dank!</h1>
+  <h2 class="text-xl font-bold mt-6">Ihre Daten wurden zur Verarbeitung angenommen.</h2>
+  <div class="mt-6 flex flex-col space-x-0 space-y-4 lg:flex-row lg:content-start lg:items-start lg:justify-start lg:space-x-4 lg:space-y-0">
+    <div class="flex flex-col space-y-4 flex-1">
+      <div th:replace="~{fragments/common-messages :: common-messages}"></div>
+    </div>
+  </div>
+</section>
+<div th:replace="~{fragments/tw-common-bottom :: tw-common-bottom}"></div>
+</body>
+</html>

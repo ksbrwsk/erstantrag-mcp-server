@@ -1,0 +1,40 @@
+Hier sind einige Beispiele für gültige deutsche IBANs:
+
+1. `DE89370400440532013000`
+2. `DE75512108001245126199`
+3. `DE44500105175407324931`
+4. `DE89370400440532013000`
+5. `DE12500105170648489890`
+
+Diese IBANs bestehen aus dem Ländercode `DE`, einer zweistelligen Prüfziffer, einer achtstelligen Bankleitzahl und einer zehnstelligen Kontonummer.
+
+
+1. `DE8937040044053201300`
+2. `DE755121080012451261995`
+3. `DA44500105175407324931`
+4. `DD89370400440532013000`
+5. `DE12500105170648489890`
+
+5. `IT12500105170648489890`
+
+Hier sind 10 Beispiele für gültige deutsche Adressen:
+
+1. Musterstraße 1, 10115 Berlin  
+2. Beispielweg 2, 20095 Hamburg  
+3. Hauptstraße 3a, 80331 München  
+4. Nebenstraße 4, 50667 Köln  
+5. Ringstraße 5, 60311 Frankfurt am Main  
+6. Bergstraße 6, 70173 Stuttgart  
+7. Talstraße 7-10, 40213 Düsseldorf  
+8. Waldstraße, 44135 Dortmund  
+9. Seestraße 9, 05127 Chemnitz  
+10. Flussstraße 10, 28195 Bremen  8. Waldstraße, 44135 Dortmund  
+11. Seestraße 9a, 05127 Chemnitz  
+12. Flussstraße, 28195 Bremen  
+
+Please check, if the given ADDRESS Waldstraße C, 444135, Dortmund is a valid german address.
+Return the data in RFC8259 compliant JSON format with the following fields:
+anschrift: type string, the anschrift you have checked
+plz: type string, the plz you have checked
+ort: type string, the ort you have checked
+valid: type boolean, the result of your check

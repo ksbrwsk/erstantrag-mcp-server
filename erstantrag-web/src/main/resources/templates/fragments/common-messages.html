@@ -1,0 +1,26 @@
+<div th:fragment="common-messages">
+    <div th:if="${errorMessage != null}">
+        <div class="flex items-stretch p-4 mb-2 text-lg text-red-800 border border-red-300 rounded-lg bg-red-50 " role="alert">
+            <svg class="shrink-0 inline w-6 h-6 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <span class="sr-only">Info</span>
+            <div>
+                <span class="text-lg text-bold" th:text="${errorMessage}">...</span>
+            </div>
+        </div>
+    </div>
+    <div th:if="${successMessage != null}">
+        <div class="flex items-stretch p-4 mb-2 text-lg text-green-800 border border-green-300 rounded-lg bg-white " role="alert">
+            <svg class="shrink-0 inline w-6 h-6 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <span class="sr-only">Info</span>
+            <div>
+                <span class="text-lg font-bold" th:text="${successMessage}">...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
