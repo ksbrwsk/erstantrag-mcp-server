@@ -1,8 +1,6 @@
 spring:
   application:
     name: erstantrag-mcp-server
-    type:
-
   main:
     banner-mode: off
   ai:
